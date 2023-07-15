@@ -1,0 +1,19 @@
+- name: Install System Packages 
+  become: true
+  apt:
+    pkg:
+      - software-properties-common
+      - man
+      - vim
+      - wget
+      - curl 
+      - nginx
+      - mosh 
+      - snapd
+      - ripgrep
+      - make
+    state: latest
+    update_cache: true
+  tags:
+    - install
+    - core

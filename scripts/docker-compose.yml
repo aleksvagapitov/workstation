@@ -1,0 +1,41 @@
+version: "3.1"
+services:
+  db:
+    container_name: pg_container
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: MainDB
+      POSTGRES_USER: AdminUser
+      POSTGRES_PASSWORD: ThisIsADb1234!
+    networks:
+      - db-shared
+    ports:
+      - "5432:5432"
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: loxoyo6710@anomgo.com
+      PGADMIN_DEFAULT_PASSWORD: EbEd1LT9*wUoSP4FMSCDe31WvT&14Q7L*AeLj
+    networks:
+      - db-shared    
+    ports:
+      - "5433:80"
+    depends_on:
+      - db
+  registry:
+    container_name: registry_container
+    image: registry:2.6.1
+    volumes:
+      - registry:/var/lib/registry
+    ports:
+      - 5434:5000
+    restart: unless-stopped
+
+networks:
+ db-shared:
+
+volumes:
+  registry:
