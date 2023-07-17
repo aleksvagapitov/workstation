@@ -3,3 +3,19 @@
   template: src=config dest=~/.ssh/config
   tags:
     - git
+
+- name: change config permission
+  become_user: user
+  ansible.builtin.file:
+    path: "~/.ssh/config"
+    owner: "user"
+    group: "user"
+    mode: '0600'
+
+- name: change ssh key permission
+  become_user: user
+  ansible.builtin.file:
+    path: "~/.ssh/github"
+    owner: "user"
+    group: "user"
+    mode: '0600'
