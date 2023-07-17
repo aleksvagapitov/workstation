@@ -8,7 +8,9 @@
       - core
       - dnsmasq
       - docker
+      - git
   tasks:
   - include: tasks/core.yml
+  - include: tasks/git.yml 
   - include: tasks/dnsmasq.yml
   - include: tasks/docker.yml

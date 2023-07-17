@@ -1,0 +1,5 @@
+- name: set up ssh config
+  become_user: user
+  template: src=config dest=~/.ssh/config
+  tags:
+    - git

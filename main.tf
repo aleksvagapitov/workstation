@@ -65,8 +65,8 @@ resource "digitalocean_droplet" "workstation" {
   }
 
   provisioner "file" {
-    source      = "dotfiles"
-    destination = ".dotfiles/"
+    source      = "~/.ssh/github"
+    destination = ".ssh/github"
 
     connection {
       type        = "ssh"
@@ -80,6 +80,10 @@ resource "digitalocean_droplet" "workstation" {
 
 output "public_ip" {
   value = "ssh -i ~/.ssh/workstation user@${digitalocean_droplet.workstation.ipv4_address}"
+}
+
+output "copy_ssh_file" {
+  value = "scp -i ~/.ssh/workstation ~/.ssh/github user@${digitalocean_droplet.workstation.ipv4_address}:/home/user/.ssh/"
 }
 
 output "copy_vpn_file" {
