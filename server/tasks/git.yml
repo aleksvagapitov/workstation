@@ -19,3 +19,11 @@
     owner: "user"
     group: "user"
     mode: '0600'
+
+- name: Clone a private Git repository 
+  become_user: user 
+  git: 
+    repo: git@github.com:aleksvagapitov/.dotfiles.git 
+    dest: "~/.dotfiles" 
+    accept_hostkey: yes 
+    key_file: "~/.ssh/github"
