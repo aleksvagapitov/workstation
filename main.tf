@@ -40,7 +40,7 @@ resource "digitalocean_droplet" "workstation" {
   
   provisioner "file" {
     source      = "server"
-    destination = "server/"
+    destination = ".server/"
 
     connection {
       type        = "ssh"
