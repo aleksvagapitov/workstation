@@ -29,6 +29,7 @@
     key_file: "~/.ssh/github"
 
 - name: Git personal setup email
+  become_user: user 
   git_config:
     name: user.email
     scope: global
@@ -37,6 +38,7 @@
   - git
 
 - name: Git personal setup name
+  become_user: user
   git_config:
     name: user.name
     scope: global
