@@ -20,10 +20,10 @@ provider "digitalocean" {
 
 # Create a web server
 resource "digitalocean_droplet" "workstation" {
-  image       = "ubuntu-20-04-x64"
+  image       = "ubuntu-22-04-x64"
   name        = "workstation"
   region      = "sgp1"
-  size        = "s-1vcpu-2gb-intel"
+  size        = "s-1vcpu-2gb"
   ssh_keys    = [digitalocean_ssh_key.workstation.id]
 
   provisioner "remote-exec" {
