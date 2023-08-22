@@ -16,8 +16,6 @@ cd /home/user && mkdir .ssh && touch .ssh/authorized_keys && cat ~/.ssh/authoriz
 cd /home/user && chmod 700 .ssh && chown user:user .ssh && chmod 600 .ssh/authorized_keys && chown user:user .ssh/authorized_keys
 
 #To directly modify sshd_config.
-
-# sed -i 's/#\?\(Port\s*\).*$/\1 2231/' /etc/ssh/sshd_config
 sed -i '$ a AllowUsers user' /etc/ssh/sshd_config
 sed -i 's/#\?\(PermitRootLogin\s*\).*$/\1 no/' /etc/ssh/sshd_config
 sed -i 's/#\?\(PubkeyAuthentication\s*\).*$/\1 yes/' /etc/ssh/sshd_config
@@ -27,7 +25,6 @@ sed -i 's/#\?\(PasswordAuthentication\s*\).*$/\1 no/' /etc/ssh/sshd_config
 # Fix Ubuntu 22.04 Unattended Installation 
 echo "\$nrconf{restart} = 'a';" | tee /etc/needrestart/conf.d/50local.conf
 
-apt-get update && apt-get upgrade -y
 apt-get install -y mosh
 
 #Check the exit status of the last command
