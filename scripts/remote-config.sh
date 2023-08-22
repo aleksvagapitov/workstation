@@ -24,6 +24,12 @@ sed -i 's/#\?\(PubkeyAuthentication\s*\).*$/\1 yes/' /etc/ssh/sshd_config
 sed -i 's/#\?\(PermitEmptyPasswords\s*\).*$/\1 no/' /etc/ssh/sshd_config
 sed -i 's/#\?\(PasswordAuthentication\s*\).*$/\1 no/' /etc/ssh/sshd_config
 
+# Fix Ubuntu 22.04 Unattended Installation 
+echo "\$nrconf{restart} = 'a';" | tee /etc/needrestart/conf.d/50local.conf
+
+apt-get update && apt-get upgrade -y
+apt-get install -y mosh
+
 #Check the exit status of the last command
 systemctl restart sshd
 

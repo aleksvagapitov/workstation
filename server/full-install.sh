@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Fix Ubuntu 22.04 Unattended Installation 
-echo "\$nrconf{restart} = 'a';" | sudo tee /etc/needrestart/conf.d/50local.conf
-
 sudo apt install -y software-properties-common
 sudo apt-add-repository --yes --update ppa:ansible/ansible
 sudo apt install -y ansible
