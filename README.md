@@ -1,6 +1,6 @@
 # Workstation build
 
-This terraform setup creates a workstation on Hetzner with Teamcity.
+This terraform setup creates a workstation
 
 ## Install
 
@@ -8,8 +8,7 @@ This terraform setup creates a workstation on Hetzner with Teamcity.
 1. Create workstation server
 
 ```
-$ terraform plan
-$ terraform apply -auto-approve
+ssh -tt server-up "cd workstation && terraform apply -auto-approve"
 ```
 2. Copy output of terraform script and ssh into server
 3. Configure the server
