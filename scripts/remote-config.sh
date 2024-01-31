@@ -26,6 +26,7 @@ sed -i 's/#\?\(PasswordAuthentication\s*\).*$/\1 no/' /etc/ssh/sshd_config
 echo "\$nrconf{restart} = 'a';" | tee /etc/needrestart/conf.d/50local.conf
 
 while fuser /var/lib/dpkg/lock >/dev/null 2>&1; do sleep 5; done;
+while fuser /var/lib/dpkg/lock-frontend >/dev/null 2>&1; do sleep 5; done;
 apt-get update
 apt-get install -y mosh
 
