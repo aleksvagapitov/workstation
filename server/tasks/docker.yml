@@ -61,7 +61,9 @@
   copy:
     dest: /etc/docker/daemon.json
     content: |
-      { "iptables": false }
+      { 
+        "dns": ["8.8.8.8"]
+      }
 - name: Change Default Docker Options
   copy:
     dest: /etc/default/docker
