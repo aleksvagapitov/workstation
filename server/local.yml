@@ -13,7 +13,7 @@
     become: yes
     shell:  while sudo fuser /var/lib/dpkg/lock >/dev/null 2>&1; do sleep 5; done;
   tasks:
-  - include: tasks/core.yml
-  - include: tasks/git.yml 
-  - include: tasks/dnsmasq.yml
-  - include: tasks/docker.yml
+  - import_tasks: tasks/core.yml
+  - import_tasks: tasks/git.yml 
+  - import_tasks: tasks/dnsmasq.yml
+  - import_tasks: tasks/docker.yml
