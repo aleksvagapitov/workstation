@@ -6,7 +6,7 @@
       update-cache: true
     tags:
       - core
-      - dnsmasq
+      - iptables
       - docker
       - git
   - name: Wait for sudo
@@ -15,5 +15,5 @@
   tasks:
   - import_tasks: tasks/core.yml
   - import_tasks: tasks/git.yml 
-  - import_tasks: tasks/dnsmasq.yml
+  - import_tasks: tasks/iptables.yml
   - import_tasks: tasks/docker.yml
