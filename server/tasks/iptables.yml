@@ -22,7 +22,7 @@
 
     - name: Create known hosts config
       shell: |
-        sed -i "/127.0.0.1/ a 172.17.0.1 my-registry" /etc/hosts
+        sed -i "/127.0.0.1/ a 172.17.0.1 registry.aleksvagapitov.com" /etc/hosts
 
     - name: Ensure etc/iptables folder exists
       file:
