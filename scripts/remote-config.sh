@@ -31,6 +31,6 @@ apt-get update
 apt-get install -y mosh
 
 #Check the exit status of the last command
-systemctl restart sshd
+systemctl restart ssh
 
 exit 0

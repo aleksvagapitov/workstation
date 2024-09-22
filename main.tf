@@ -6,7 +6,7 @@ resource "hcloud_ssh_key" "workstation" {
 # Create a web server
 resource "hcloud_server" "workstation" {
   name        = "jump-server"
-  image       = "ubuntu-22.04"
+  image       = "ubuntu-24.04"
   server_type = "cpx21"
   location    = "ash"
   ssh_keys    = ["My SSH KEY"]
